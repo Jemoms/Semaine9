@@ -1,4 +1,8 @@
-/******************* EXERCICE 1 ********************/
+/******************* EXERCICE 1 ********************
+
+
+
+
 
 var listouille = document.querySelector("#liste"),
 		nom = document.querySelector("#nom") ,
@@ -73,9 +77,17 @@ afficherListe();
 
 
 
-/**********************************************/
+
+
+
+**********************************************/
 
 /******************EXERCICE 2*******************
+
+
+
+
+
 
 var listouille = document.querySelector("#liste"),
 		texte = document.querySelector("#texte") ,
@@ -110,4 +122,46 @@ annuler.addEventListener('click',supprimer,false);
 afficherListe();
 
 
+
+
+
+
+
 **********************************************************************/
+
+
+/******************EXERCICE 3*******************/
+
+
+
+
+var listouille = document.querySelector("#liste"),
+		supprimer = document.querySelector("#supprimer"),
+		restaurer = document.querySelector("#restaurer");
+
+function selectionne(e) {
+  e.target.classList.toggle("selected");
+}
+
+function suppression() {
+	for(i=0; i<listouille.children.length; i++){
+		if (listouille.children[i].classList.contains("selected")) {
+			listouille.children[i].classList.add("poubelle");
+		}
+	}
+}
+
+function restauration () {
+	for(i=0; i<listouille.children.length; i++){
+		if(listouille.children[i].classList.contains("poubelle")){listouille.children[i].classList.remove("poubelle","selected");
+		}
+	}
+}
+
+listouille.addEventListener('click', selectionne, false);
+supprimer.addEventListener('click', suppression, false);
+restaurer.addEventListener('click', restauration, false);
+
+
+
+/*******************************************************************/
